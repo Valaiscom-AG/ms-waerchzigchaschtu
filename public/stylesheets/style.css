@@ -1,0 +1,72 @@
+@import url("https://use.typekit.net/bcv5cbp.css");
+
+/*
+
+Europa-Light Light
+-----------------
+font-family: "europa", sans-serif;
+font-weight: 300;
+font-style: normal;
+
+Europa-Light LightItalic
+-----------------
+font-family: "europa", sans-serif;
+font-weight: 300;
+font-style: italic;
+
+Europa-Regular Regular
+-----------------
+font-family: "europa", sans-serif;
+font-weight: 400;
+font-style: normal;
+
+Europa-Regular RegularItalic
+-----------------
+font-family: "europa", sans-serif;
+font-weight: 400;
+font-style: italic;
+
+Europa-Bold Bold
+-----------------
+font-family: "europa", sans-serif;
+font-weight: 700;
+font-style: normal;
+
+Europa-Bold BoldItalic
+-----------------
+font-family: "europa", sans-serif;
+font-weight: 700;
+font-style: italic;
+
+*/
+
+*,
+body {
+    font-family: "europa" !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: "europa", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.btn-danger {
+background-color: #d60137;
+}
+
+::selection {
+    color: white;
+    background-color: #d60137;
+    }
+    
+    #helper {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+        z-index: +2;
+    }
+    
+    #helper svg {
+        fill: #d60137;
+}
