@@ -1,3 +1,4 @@
+<link rel="icon" type="image/x-icon" href="/assets/apps/icons/tools.png" />
 <style>
     .svg-frame {
         position: relative;
@@ -63,9 +64,9 @@
 </style>
 <nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/index.html"><img class="img-fluid mb-2" src="/assets/logo/logo.png"
+        <a class="navbar-brand" href="/"><img class="img-fluid mb-2" src="/assets/logo/logo.png"
                 alt="valaiscom" width="125">
-            <span class="m-3">Wärchzigchaschtu</span></a>
+            <span class="m-3">{{title}}</span></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
             aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -74,6 +75,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
             </ul>
             {{#if isAuthenticated }}
+                    <a id="helper"></a>
             <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
             {{else}}
             <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i></a>
@@ -93,13 +95,13 @@
                 <img src="assets/logo/logo.png" alt="Valaiscom" width="200" />
             </div>
             <div class="row w-100 mb-3 text-center">
-                <h2>Wärchzigchaschtu</h2>
+                <h2 class="fw-bold">«Wärchzigchaschtu»</h2>
             </div>
             <div class="row w-100 d-flex justify-content-cente align-items-center">
                 <input type="text" class="form-control-lg w-25 border border-2 border-danger text-center d-none"
                     placeholder="Suche.." />
                 <h4 class="text-center">
-                    <a href="/apps/installieren" class="btn btn-outline-danger btn-sm">Als App Installieren</a>
+                    <a href="/installieren" class="btn btn-outline-danger btn-sm">Als App Installieren</a>
                 </h4>
             </div>
         </div>
@@ -187,7 +189,7 @@
         </div>
     </section>
     {{else}}
-    <h1 class="mt-5 fw-bold mb-3">Wärchzigchaschtu</h1>
+    <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
     <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
     {{/if}}
 </center>

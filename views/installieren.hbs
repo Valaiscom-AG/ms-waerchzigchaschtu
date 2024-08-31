@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom"
+                width="125">
+            <span class="m-3">{{title}}</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            </ul>
+            {{#if isAuthenticated }}
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            {{else}}
+            <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i></a>
+            {{/if}}
+            <!--[if IE] <![endif]-->
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i> <!-- Moon icon by default -->
+            </button>
+        </div>
+    </div>
+</nav>
+<center>
+    {{#if isAuthenticated }}
+    <div class="container-fluid mt-5 d-flex justify-content-center align-items-center flex-wrap">
+        <h1 class="w-100">Wie Installiere Ich ein Tool als Desktop app?</h1>
+        <section
+            class="w-50 bg-secondary-subtle d-flex justify-content-start align-items-start flex-wrap p-3 m-5 rounded-3">
+            <section class="mb-5 mt-3">
+                <h3>1. Öffne den <u>link</u> im <code>Microsoft-Edge</code> Browser</h3>
+                <img src="/assets/apps/installation/1.png" alt="" draggable="false" class="img-fluid rounded-3"
+                    width="600">
+                <small></small>
+            </section>
+            <section class="mb-5 mt-3">
+                <h3>2. Gehe auf <code>•••</code></h3>
+                <img src="/assets/apps/installation/2.png" alt="" draggable="false" class="img-fluid rounded-3"
+                    width="600">
+                <small></small>
+            </section>
+            <section class="mb-5 mt-3">
+                <h3>3. Wähle <code>Apps</code></h3>
+                <img src="/assets/apps/installation/3.png" alt="" draggable="false" class="img-fluid rounded-3"
+                    width="600">
+                <small></small>
+            </section>
+            <section class="mb-5 mt-3">
+                <h3>4. <code>Diese Site als eine App installieren</code></h3>
+                <img src="/assets/apps/installation/4.png" alt="" draggable="false" class="img-fluid rounded-3"
+                    width="600">
+                <small></small>
+            </section>
+            <section class="mb-5 mt-3">
+                <h3>5. <code>installieren</code></h3>
+                <img src="/assets/apps/installation/5.png" alt="" draggable="false" class="img-fluid rounded-3"
+                    width="600">
+                <small></small>
+            </section>
+            <section class="mb-5 mt-3">
+                <h3>6. <code>Zulassen</code></h3>
+                <img src="/assets/apps/installation/6.png" alt="" draggable="false" class="img-fluid rounded-3"
+                    width="600">
+                <small></small>
+            </section>
+            <section class="mb-5 mt-3">
+                <h3>8. <code>Ja</code></h3>
+                <img src="/assets/apps/installation/7.png" alt="" draggable="false" class="img-fluid rounded-3"
+                    width="600">
+                <small></small>
+            </section>
+            <section class="mb-5 mt-3 w-100 badge text-bg-success text-start">
+                <h3>9. Fertig</h3>
+            </section>
+        </section>
+    </div>
+    {{else}}
+    <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+    <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+    {{/if}}
+</center>
+<script type="module" src="/js/apps/breife.js"></script>

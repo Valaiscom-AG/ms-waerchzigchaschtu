@@ -1,0 +1,130 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom"
+                width="125">
+            <span class="m-3">{{title}}</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            </ul>
+            {{#if isAuthenticated }}
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            {{else}}
+            <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i></a>
+            {{/if}}
+            <!--[if IE] <![endif]-->
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i> <!-- Moon icon by default -->
+            </button>
+        </div>
+    </div>
+</nav>
+<center>
+    {{#if isAuthenticated }}
+    <main class="container-fluid mt-3 bg-dark-subtle rounded-3">
+        <div class="row">
+            <!-- Navigation -->
+            <nav class="col-md-3 col-lg-2 d-md-block sidebar">
+                <div class="position-sticky">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="#übersicht"
+                                data-bs-toggle="tab">Übersicht</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#installation-tab" data-bs-toggle="tab">Installation</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#usage-tab" data-bs-toggle="tab">Usage</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#api-tab" data-bs-toggle="tab">API Reference</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#examples-tab" data-bs-toggle="tab">Examples</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <!-- Content -->
+            <div class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+                <div class="tab-content pt-3">
+                    <!-- Overview Tab -->
+                    <div class="tab-pane fade show active" id="übersicht">
+                        <h2>Übersicht</h2>
+                        <p><code>vc-tools</code> ist eine Platform zum schnellzugriff auf Interne Werkzeuge, Platfromen
+                            & Informationen.</p>
+                        <h4>Technischer Aufbau</h4>
+                        <img src="" alt="">
+                        <small>Bild Beschreibung</small>
+
+                        <p class="bg-black mt-2 p-2 w-50 rounded-3">
+                            <b class="text-info">Accounts zur Verwaltung</b><br>
+                            <small> <b class="text-white-50">GitHub</b> <i><u>marketing@valaiscom-ag.ch</u></i>
+                                <code>2FA</code>
+                            </small> <br>
+                            <small> <b class="text-primary">Netlify</b> <i><u>web@valaiscom-ag.ch</u></i>
+                            </small> <br>
+                            <small> <b class="text-success">Supabase</b> <i><u>marketing@valaiscom-ag.ch</u></i>
+                                <code>Anmelden mit GitHub</code> </small>
+                        </p>
+                    </div>
+
+                    <!-- Installation Tab -->
+                    <div class="tab-pane fade" id="installation-tab">
+                        <h2>Installation</h2>
+                        <p>Instructions on how to install the package:</p>
+                        <pre><code>$ npm install your-package-name</code></pre>
+                        <p>Make sure to install any necessary dependencies:</p>
+                        <pre><code>$ npm install</code></pre>
+                    </div>
+
+                    <!-- Usage Tab -->
+                    <div class="tab-pane fade" id="usage-tab">
+                        <h2>Usage</h2>
+                        <p>Basic usage examples:</p>
+                        <pre><code>import { YourModule } from 'your-package-name';
+                            
+                            const result = YourModule.doSomething();
+                            console.log(result);</code></pre>
+                        <p>For more advanced usage, refer to the API reference.</p>
+                    </div>
+
+                    <!-- API Reference Tab -->
+                    <div class="tab-pane fade" id="api-tab">
+                        <h2>API Reference</h2>
+                        <h3>doSomething()</h3>
+                        <p><code>doSomething(param: string): string</code></p>
+                        <p>Returns a processed string based on the input parameter.</p>
+                        <h3>AnotherFunction()</h3>
+                        <p><code>AnotherFunction(param: number): number</code></p>
+                        <p>Processes a number and returns the result.</p>
+                    </div>
+
+                    <!-- Examples Tab -->
+                    <div class="tab-pane fade" id="examples-tab">
+                        <h2>Examples</h2>
+                        <p>Here are some example use cases:</p>
+                        <pre><code>// Example 1
+                            const result1 = YourModule.doSomething('example');
+                            console.log(result1);
+                            
+                            // Example 2
+                            const result2 = YourModule.AnotherFunction(42);
+                            console.log(result2);</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    {{else}}
+    <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+    <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+    {{/if}}
+</center>
+<script type="module" src="/js/apps/fiber-checker.js"></script>

@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom"
+                width="125">
+            <span class="m-3">{{title}}</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            </ul>
+            {{#if isAuthenticated }}
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            {{else}}
+            <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i></a>
+            {{/if}}
+            <!--[if IE] <![endif]-->
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i> <!-- Moon icon by default -->
+            </button>
+        </div>
+    </div>
+</nav>
+<center>
+    {{#if isAuthenticated }}
+    <div class="container mt-5 d-flex justify-content-center align-items-center flex-wrap">
+        <h1 class="w-100 text-center">Valaiscom fiber-checker <small style="font-size: 14pt;"><a
+                    href="https://checker.vadian.net/checksc.aspx?xdsl=bxdsl&reg=WSUB7EU7&lang=de&QualByAdr=true">zum
+                    Breitband-Checker</a></small>
+        </h1>
+        <div class="mb-3 mt-3 w-50 d-flex flex-wrap text-center">
+            <div class="input-group mb-3">
+                <input type="text" id="addressInput" class="form-control-lg text-center w-75" placeholder="Adresse"
+                    aria-label="Recipient's username" aria-describedby="searchButton">
+                <button class="btn btn-danger rounded-3" type="button" id="searchButton"
+                    style="margin-left: -8px;">Suchen</button>
+                <div id="suggestions" class="list-group mt-5 position-absolute" style="z-index: +2;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5" id="resultsContainer" style="display:none;">
+        <div class="row g-4" id="resultsGrid"></div>
+    </div>
+    {{else}}
+    <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+    <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+    {{/if}}
+</center>
+<script type="module" src="/js/apps/fiber-checker.js"></script>

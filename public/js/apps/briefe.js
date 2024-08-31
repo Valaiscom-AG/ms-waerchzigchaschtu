@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Load templates from JSON and populate dropdown
-    fetch('templates.json')
+    fetch('/assets/apps/briefe/templates.json')
         .then(response => response.json())
         .then(data => {
             data.templates.forEach(template => {
@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Function to generate the PDF
     async function generatePDF() {
-        const existingPdfBytes = await fetch('pdfs/letterhead.pdf').then(res => res.arrayBuffer());
+        const existingPdfBytes = await fetch('/assets/apps/briefe/pdfs/letterhead.pdf').then(res => res.arrayBuffer());
 
         const pdfDoc = await PDFLib.PDFDocument.load(existingPdfBytes);
         const pages = pdfDoc.getPages();

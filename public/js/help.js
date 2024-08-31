@@ -1,9 +1,12 @@
-document.body.innerHTML += `
-<a href="https://forms.office.com/e/ka9RpDQy7L" id="helper">
-  <svg xmlns="http://www.w3.org/2000/svg" 
-  width="32" 
-  height="32" 
-  fill="#d60137" 
+const helper = document.getElementById('helper'); // id of the element where the helper will be added
+const color = "#d60137"; //HEX
+
+// where to go for help
+const link = "https://forms.office.com/e/ka9RpDQy7L";
+
+helper.innerHTML += `
+<a href="${link}" id="helper" class="text-decoration-none ms-3 me-3">
+  <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="${color}" 
   class="bi bi-patch-question"
   viewBox="0 0 16 16"
   >

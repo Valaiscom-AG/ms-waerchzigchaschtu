@@ -61,9 +61,6 @@ background-color: #d60137;
     }
     
     #helper {
-        position: absolute;
-        bottom: 10px;
-        left: 20px;
         z-index: +2;
     }
     

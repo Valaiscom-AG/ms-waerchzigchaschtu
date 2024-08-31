@@ -14,25 +14,10 @@ document.addEventListener('DOMContentLoaded', async () => {
             return;
         }
 
-        const navContainer = document.getElementById('m-navigation');
-        navContainer.innerHTML = ''; // Clear existing navigation items
-
         const appList = document.getElementById('app-list');
         appList.innerHTML = ''; // Clear existing app list items
 
         data.forEach(app => {
-            // Create nav item
-            const navItem = document.createElement('li');
-            navItem.className = 'nav-item';
-
-            const navLink = document.createElement('a');
-            navLink.className = 'nav-link active';
-            navLink.href = app.link;
-            navLink.innerHTML = `<img src="${app.icon}" alt="${app.name}" style="width: 16px; height: 16px; margin-right: 8px;"> ${app.name}`;
-
-            navItem.appendChild(navLink);
-            navContainer.appendChild(navItem);
-
             // Create list item in modal
             const listItem = document.createElement('li');
             listItem.className = 'list-group-item d-flex justify-content-between align-items-center';

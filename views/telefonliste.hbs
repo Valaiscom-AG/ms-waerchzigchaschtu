@@ -1,0 +1,209 @@
+<style>
+    body {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+
+    .slider {
+        width: 100%;
+    }
+
+    a {
+        text-decoration: none;
+    }
+
+    table {
+        border-radius: 14px !important;
+    }
+</style>
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom"
+                width="125">
+            <span class="m-3">{{title}}</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            </ul>
+            {{#if isAuthenticated }}
+            <!-- Gear Icon for Opening Settings Modal -->
+            <button type="button" class="btn settings-icon" data-bs-toggle="modal" data-bs-target="#settingsModal">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-gear-wide-connected mb-1" viewBox="0 0 16 16">
+                    <path
+                        d="M7.068.727c.243-.97 1.62-.97 1.864 0l.071.286a.96.96 0 0 0 1.622.434l.205-.211c.695-.719 1.888-.03 1.613.931l-.08.284a.96.96 0 0 0 1.187 1.187l.283-.081c.96-.275 1.65.918.931 1.613l-.211.205a.96.96 0 0 0 .434 1.622l.286.071c.97.243.97 1.62 0 1.864l-.286.071a.96.96 0 0 0-.434 1.622l.211.205c.719.695.03 1.888-.931 1.613l-.284-.08a.96.96 0 0 0-1.187 1.187l.081.283c.275.96-.918 1.65-1.613.931l-.205-.211a.96.96 0 0 0-1.622.434l-.071.286c-.243.97-1.62.97-1.864 0l-.071-.286a.96.96 0 0 0-1.622-.434l-.205.211c-.695.719-1.888.03-1.613-.931l.08-.284a.96.96 0 0 0-1.186-1.187l-.284.081c-.96.275-1.65-.918-.931-1.613l.211-.205a.96.96 0 0 0-.434-1.622l-.286-.071c-.97-.243-.97-1.62 0-1.864l.286-.071a.96.96 0 0 0 .434-1.622l-.211-.205c-.719-.695-.03-1.888.931-1.613l.284.08a.96.96 0 0 0 1.187-1.186l-.081-.284c-.275-.96.918-1.65 1.613-.931l.205.211a.96.96 0 0 0 1.622-.434zM12.973 8.5H8.25l-2.834 3.779A4.998 4.998 0 0 0 12.973 8.5m0-1a4.998 4.998 0 0 0-7.557-3.779l2.834 3.78zM5.048 3.967l-.087.065zm-.431.355A4.98 4.98 0 0 0 3.002 8c0 1.455.622 2.765 1.615 3.678L7.375 8zm.344 7.646.087.065z" />
+                </svg>
+            </button>
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            {{else}}
+            <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i></a>
+            {{/if}}
+            <!--[if IE] <![endif]-->
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i> <!-- Moon icon by default -->
+            </button>
+        </div>
+    </div>
+</nav>
+<center>
+    {{#if isAuthenticated }}
+    <div class="container mt-3">
+        <div class="search-bar mb-3">
+            <input type="text" id="searchInput" class="form-control d-none" placeholder="Suche.." />
+        </div>
+
+        <div class="table-responsive d-flex justify-content-center align-items-center flex-wrap">
+            <table class="table table-hover table-striped border border-3 border-danger" id="phone-tables">
+                <thead>
+                    <tr>
+                        <th scope="col">Name</th>
+                        <th scope="col">Intern</th>
+                        <th scope="col">Extern</th>
+                        <th scope="col">
+                            <button class="btn btn-dark" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-arrow-down-right-square-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M14 16a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2zM5.904 5.197 10 9.293V6.525a.5.5 0 0 1 1 0V10.5a.5.5 0 0 1-.5.5H6.525a.5.5 0 0 1 0-1h2.768L5.197 5.904a.5.5 0 0 1 .707-.707" />
+                                </svg>
+                            </button>
+                            <div class="collapse" id="collapseExample">
+                                Mobile
+                            </div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="phone-table">
+                    <!-- Dynamic employee rows will be generated here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal fade" id="settingsModal" tabindex="-1" aria-labelledby="settingsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="settingsModalLabel">Einstellungen</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="fontSizeRange" class="form-label">Schriftgrösse</label>
+                        <input type="range" class="form-range slider" id="fontSizeRange" min="12" max="24" step="1" />
+                    </div>
+                    <div class="mb-3">
+                        <label for="fontWeightSelect" class="form-label">Schriftstärke</label>
+                        <select class="form-select" id="fontWeightSelect">
+                            <option value="400">Normal</option>
+                            <option value="600">Mittel</option>
+                            <option value="900">Fett</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Function to set a cookie
+        function setCookie(name, value, days) {
+            var expires = "";
+            if (days) {
+                var date = new Date();
+                date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+                expires = "; expires=" + date.toUTCString();
+            }
+            document.cookie = name + "=" + (value || "") + expires + "; path=/";
+        }
+
+        // Function to get a cookie
+        function getCookie(name) {
+            var nameEQ = name + "=";
+            var ca = document.cookie.split(";");
+            for (var i = 0; i < ca.length; i++) {
+                var c = ca[i];
+                while (c.charAt(0) == " ") c = c.substring(1, c.length);
+                if (c.indexOf(nameEQ) == 0)
+                    return c.substring(nameEQ.length, c.length);
+            }
+            return null;
+        }
+
+        // Function to apply the saved theme and font settings on page load
+        function applySavedSettings() {
+            const savedTheme = getCookie("theme");
+            const savedFontSize = getCookie("fontSize");
+            const savedFontWeight = getCookie("fontWeight");
+
+            if (savedTheme) {
+                document.body.setAttribute("data-bs-theme", savedTheme);
+            }
+
+            if (savedFontSize) {
+                document.documentElement.style.fontSize = savedFontSize + "px";
+                document.getElementById("fontSizeRange").value = savedFontSize;
+            }
+
+            if (savedFontWeight) {
+                document.body.style.fontWeight = savedFontWeight;
+                document.getElementById("fontWeightSelect").value = savedFontWeight;
+            }
+        }
+
+        // Event listener for the font size slider
+        document
+            .getElementById("fontSizeRange")
+            .addEventListener("input", function () {
+                const fontSize = this.value;
+                document.documentElement.style.fontSize = fontSize + "px";
+                setCookie("fontSize", fontSize, 7);
+            });
+
+        // Event listener for the font weight select
+        document
+            .getElementById("fontWeightSelect")
+            .addEventListener("change", function () {
+                const fontWeight = this.value;
+                document.body.style.fontWeight = fontWeight;
+                setCookie("fontWeight", fontWeight, 7);
+            });
+
+        // Event listener for the toggle button
+        document
+            .getElementById("darkModeToggle")
+            .addEventListener("click", toggleDarkMode);
+
+        // Apply the saved settings when the page loads
+        window.onload = applySavedSettings;
+
+        // Search filter implementation
+        document
+            .getElementById("searchInputRegion")
+            .addEventListener("input", function () {
+                let filter = this.value.toLowerCase();
+                let rows = document.querySelectorAll("#phone-tables tbody tr");
+
+                rows.forEach((row) => {
+                    let text = row.textContent.toLowerCase();
+                    row.style.display = text.includes(filter) ? "" : "none";
+                });
+            });
+    </script>
+    {{else}}
+    <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+    <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+    {{/if}}
+</center>
+<script type="module" src="/js/apps/telefonliste.js"></script>

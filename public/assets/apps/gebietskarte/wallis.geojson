@@ -1,0 +1,11 @@
+[
+    {
+      "id": "Wallis",
+      "type": "fill",
+      "paint": {
+        "fill-outline-color": "#ffffff"
+      },
+      "source": "composite",
+      "source-layer": "Communes_Wallis-cb0vhq"
+    }
+  ]

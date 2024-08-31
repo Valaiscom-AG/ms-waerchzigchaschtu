@@ -1,0 +1,80 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom"
+                width="125">
+            <span class="m-3">{{title}}</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            </ul>
+            {{#if isAuthenticated }}
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            {{else}}
+            <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i></a>
+            {{/if}}
+            <!--[if IE] <![endif]-->
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i> <!-- Moon icon by default -->
+            </button>
+        </div>
+    </div>
+</nav>
+<center>
+    {{#if isAuthenticated }}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h1 class="mt-5">Kurz Brief Erstellen</h1>
+                <form id="pdfForm">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Vorname, Nachname</span>
+                        <input type="text" aria-label="First name" class="form-control" placeholder="Vorname" required>
+                        <input type="text" aria-label="Last name" class="form-control" placeholder="Nachname" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Adresse</span>
+                        <input type="text" aria-label="Strasse & Haus Nr." class="form-control"
+                            placeholder="Strasse & Haus Nr." required>
+                        <input type="text" aria-label="PLZ" class="form-control" placeholder="PLZ" required>
+                        <input type="text" aria-label="Ort" class="form-control" placeholder="Ort" required>
+                        <input type="text" aria-label="Land" class="form-control" placeholder="Land">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Datum</span>
+                        <input type="date" id="date" class="form-control" required>
+                    </div>
+                    <div class="input-group mb-3">
+                        <button class="btn btn-outline-secondary dropdown-toggle" type="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">Vorlagen</button>
+                        <ul class="dropdown-menu" id="templateDropdown"></ul>
+                        <input type="text" class="form-control" aria-label="Text input with dropdown button" id="title">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Text</span>
+                        <textarea class="form-control" aria-label="With textarea" id="text"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success"><i class="bi bi-download"></i> Herunterladen</button>
+                    <button type="button" id="printBtn" class="btn btn-secondary"><i class="bi bi-printer-fill"></i>
+                        Drucken</button>
+                </form>
+            </div>
+            <div class="col">
+                <div id="previewContainer" class="mt-5">
+                    <h4>Vorschau</h4>
+                    <iframe id="pdfPreview" style="width: 100%; height: 765px;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{else}}
+    <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+    <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+    {{/if}}
+</center>
+<script src="https://unpkg.com/pdf-lib/dist/pdf-lib.js"></script>
+
+<script type="module" src="/js/apps/briefe.js"></script>

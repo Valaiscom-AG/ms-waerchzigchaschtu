@@ -1,0 +1,372 @@
+<style>
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        font-family: Arial !important;
+    }
+
+    td {
+        border: none;
+    }
+</style>
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom"
+                width="125">
+            <span class="m-3">{{title}}</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            </ul>
+            {{#if isAuthenticated }}
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            {{else}}
+            <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i></a>
+            {{/if}}
+            <!--[if IE] <![endif]-->
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i> <!-- Moon icon by default -->
+            </button>
+        </div>
+    </div>
+</nav>
+<center>
+    {{#if isAuthenticated }}
+    <div class="container-fluid mt-5 d-flex justify-content-center align-items-center">
+        <div class="row">
+            <!-- Sidebar (25%) -->
+            <div class="col-md-3 me-5">
+                <select class="form-control ms-3 mb-3" id="employee-dropdown"></select>
+            </div>
+            <!-- Main Content (75%) -->
+            <div class="col-md-9">
+                <div class="container">
+                    <div class="card-group" style="width: 800px;">
+                        <div class="card">
+                            <!-- <h4 class="m-2 text-center">Intern</h4>-->
+                            <div class="card-body">
+                                <div class="signature" id="intern">
+                                    <table cellpadding="0" cellspacing="0"
+                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;"
+                                        cellpadding="0" cellspacing="0"
+                                        style="border-collapse: collapse; border-spacing: 0;">
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <table cellpadding="0" cellspacing="0"
+                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="vertical-align: top">
+                                                                    <table cellpadding="0" cellspacing="0"
+                                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td style="text-align: center">
+                                                                                    <!--REPLACE FLIE PATH with img-->
+                                                                                    <img id="profileImage"
+                                                                                        role="presentation" width="140"
+                                                                                        style="display: block; max-width: 140px"
+                                                                                        draggable="false"
+                                                                                        src="/assets/apps/email-signatur/profil/default.png"
+                                                                                        alt="Ladet...">
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td height="30"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="text-align: center">
+                                                                                    <img src="/assets/apps/email-signatur/logo/logo.png"
+                                                                                        role="presentation" width="120"
+                                                                                        style="display: block; max-width: 120px;padding-left:60px;margin-top: -30px;"
+                                                                                        draggable="false" />
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr height="10"></tr>
+                                                                            <tr>
+                                                                                <td style="text-align: center">
+                                                                                    <img src="/assets/apps/email-signatur/claims/claims.gif"
+                                                                                        role="presentation" width="140"
+                                                                                        style="display: block; max-width: 140px;padding-left:60px;margin-top: 30px;"
+                                                                                        draggable="false" />
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td height="30"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="text-align: center">
+                                                                                    <table Cellpadding="0"
+                                                                                        cellspacing="0"
+                                                                                        style=" display: inline-block;vertical-align:-webkit-baseline-middle;font-size:medium;font-family:Arial;">
+                                                                                        <tbody>
+                                                                                            <tr
+                                                                                                style="text-align: center">
+                                                                                                <td width="5">
+                                                                                                    <div></div>
+                                                                                                </td>
+                                                                                                <td width="5">
+                                                                                                    <div></div>
+                                                                                                </td>
+                                                                                                <td width="5">
+                                                                                                    <div></div>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                                <td width="46">
+                                                                    <div></div>
+                                                                </td>
+                                                                <td style="padding: 0px; vertical-align: middle">
+                                                                    <h2
+                                                                        style="margin: 0px; font-size: 14px; color: rgb(0, 0, 0);font-weight: 600;">
+                                                                        <span
+                                                                            id="d-firstname"></span><span>&nbsp;</span><span
+                                                                            id="d-lastname"></span>
+                                                                    </h2>
+                                                                    <p
+                                                                        style="margin: 0px;color: rgb(0, 0, 0);font-size: 14px;line-height: 22px;">
+                                                                        <span id="d-jobtitle"></span>
+                                                                    </p>
+                                                                    <p
+                                                                        style="margin: 0px;font-weight: 500;color: rgb(0, 0, 0);font-size: 12px;line-height: 22px;">
+                                                                        <span style="color: #d40037"><b
+                                                                                id="d-department"></span><span>&nbsp;|&nbsp;</span><span>Valaiscom
+                                                                            AG</span></b></span>
+                                                                    </p>
+                                                                    <table cellpadding="0" cellspacing="0"
+                                                                        style="width: 100%;vertical-align: -webkit-baseline-middle;font-size: 12;font-family: Arial;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td height="10"></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td color="#d40037"
+                                                                                    direction="horizontal" width="auto"
+                                                                                    height="1"
+                                                                                    style="width: 100%;border-bottom: 3px solid rgb(212, 0, 55);border-left: none;display: block;">
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td height="10"></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <table cellpadding="0" cellspacing="0"
+                                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                                        <tbody>
+                                                                            <tr height="25"
+                                                                                style="vertical-align: middle">
+                                                                                <td width="30"
+                                                                                    style="vertical-align: middle">
+                                                                                    <table cellpadding="0"
+                                                                                        cellspacing="0"
+                                                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td
+                                                                                                    style="vertical-align: bottom">
+                                                                                                    <span
+                                                                                                        color="#d40037"
+                                                                                                        width="11"
+                                                                                                        style="display: inline-block;">
+                                                                                                        <img src="/assets/apps/email-signatur/icons/telefon.png"
+                                                                                                            color="#d40037"
+                                                                                                            alt="mobilePhone"
+                                                                                                            width="28"
+                                                                                                            style="display: block;"
+                                                                                                            draggable="false"
+                                                                                                            draggable="false" />
+                                                                                                    </span>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                                <td
+                                                                                    style="padding: 0px; color: rgb(0, 0, 0)">
+                                                                                    <a
+                                                                                        style="text-decoration: none;color: rgb(0, 0, 0);font-size: 10px;"><span
+                                                                                            style="text-decoration: none;  color: rgb(0, 0, 0);font-size: 10px;"></span>
+                                                                                        <span id="d-extphone"
+                                                                                            style="font-size: 10px; color: rgb(0, 0, 0)"></span>
+                                                                                    </a>
+                                                                                    <span
+                                                                                        style="text-decoration: none;  color: rgb(0, 0, 0);font-size: 10px;"></span>
+                                                                                    <span id="d-mobphone"
+                                                                                        style="font-size: 10px; color: rgb(0, 0, 0)"></span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr height="25"
+                                                                                style="vertical-align: middle">
+                                                                                <td width="30"
+                                                                                    style="vertical-align: middle">
+                                                                                    <table cellpadding="0"
+                                                                                        cellspacing="0"
+                                                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td
+                                                                                                    style="vertical-align: bottom">
+                                                                                                    <span width="11"
+                                                                                                        style="display: inline-block;">
+                                                                                                        <img src="/assets/apps/email-signatur/icons/email.png"
+                                                                                                            alt="emailAddress"
+                                                                                                            width="28"
+                                                                                                            style="display: block;"
+                                                                                                            draggable="false" /></span>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                                <td style="padding: 0px">
+                                                                                    <a color="#000000"
+                                                                                        style="text-decoration: none;color: rgb(0, 0, 0); "><span
+                                                                                            id="d-email"
+                                                                                            style="font-size: 10px; color: rgb(0, 0, 0)"></span></a>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr height="25"
+                                                                                style="vertical-align: middle">
+                                                                                <td width="30"
+                                                                                    style="vertical-align: middle">
+                                                                                    <table cellpadding="0"
+                                                                                        cellspacing="0"
+                                                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td
+                                                                                                    style="vertical-align: bottom">
+                                                                                                    <span width="11"
+                                                                                                        style="display: inline-block;">
+                                                                                                        <img src="/assets/apps/email-signatur/icons/link.png"
+                                                                                                            alt="website"
+                                                                                                            width="28"
+                                                                                                            style="display: block;"
+                                                                                                            draggable="false" />
+                                                                                                    </span>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                                <td style="padding: 0px">
+                                                                                    <a href="https://valaiscom.ch"
+                                                                                        style="text-decoration: none;color: rgb(0, 0, 0);font-size: 10px;">
+                                                                                        <span>valaiscom.ch</span></a>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr height="25"
+                                                                                style="vertical-align: middle">
+                                                                                <td width="30"
+                                                                                    style="vertical-align: middle">
+                                                                                    <table cellpadding="0"
+                                                                                        cellspacing="0"
+                                                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                                                        <tbody>
+                                                                                            <tr>
+                                                                                                <td
+                                                                                                    style="vertical-align: bottom">
+                                                                                                    <span width="11"
+                                                                                                        style="display: inline-block;">
+                                                                                                        <img src="/assets/apps/email-signatur/icons/ort.png"
+                                                                                                            alt="addresse"
+                                                                                                            width="28"
+                                                                                                            style=" display: block; "
+                                                                                                            draggable="false" />
+                                                                                                    </span>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                                <td style="padding: 0px">
+                                                                                    <span color="#000000"
+                                                                                        style="font-size: 10px; color: rgb(0, 0, 0)"><span>Furkastrasse
+                                                                                            26, CH-3900
+                                                                                            Brig</span></span>
+                                                                                </td>
+                                                                            </tr>
+                                                                            <tr height="25"
+                                                                                style="vertical-align: middle">
+                                                                                <td width="30"
+                                                                                    style="vertical-align: middle">
+                                                                                    <table cellpadding="0"
+                                                                                        cellspacing="0"
+                                                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                                                        <tbody>
+                                                                                            <tr id="workdays-container">
+                                                                                                <td
+                                                                                                    style="vertical-align: bottom">
+                                                                                                    <span width="11"
+                                                                                                        style="display: inline-block;">
+                                                                                                        <img src="/assets/apps/email-signatur/icons/kalender.png"
+                                                                                                            alt="workdays"
+                                                                                                            width="28"
+                                                                                                            style=" display: block; "
+                                                                                                            draggable="false" />
+                                                                                                    </span>
+                                                                                                </td>
+                                                                                            </tr>
+                                                                                        </tbody>
+                                                                                    </table>
+                                                                                </td>
+                                                                                <td style="padding: 0px">
+                                                                                    <span color="#000000"
+                                                                                        style="font-size: 10px; color: rgb(0, 0, 0)"
+                                                                                        id="d-workdays"></span>
+                                                                                </td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                    <table cellpadding="0" cellspacing="0"
+                                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                                        <tbody>
+                                                                            <tr>
+                                                                                <td height="30"></td>
+                                                                            </tr>
+                                                                        </tbody>
+                                                                    </table>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <table cellpadding="0" cellspacing="0"
+                                                        style="vertical-align: -webkit-baseline-middle;font-size: medium;font-family: Arial;">
+                                                        <tbody>
+                                                        </tbody>
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    {{else}}
+    <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+    <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+    {{/if}}
+</center>
+<script type="module" src="/js/apps/email-signatur.js"></script>
