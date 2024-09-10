@@ -22,9 +22,7 @@
             </button>
         </div>
     </div>
-</nav>
-<center>
-    {{#if isAuthenticated }}
+</nav> {{#if isAuthenticated }}
     <main class="container-fluid mt-3 bg-dark-subtle rounded-3">
         <div class="row">
             <!-- Navigation -->
@@ -36,16 +34,16 @@
                                 data-bs-toggle="tab">Übersicht</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#installation-tab" data-bs-toggle="tab">Installation</a>
+                            <a class="nav-link" href="#codebase-tab" data-bs-toggle="tab">Codebase</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#usage-tab" data-bs-toggle="tab">Usage</a>
+                            <a class="nav-link" href="#usage-tab" data-bs-toggle="tab">Hosting</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#api-tab" data-bs-toggle="tab">API Reference</a>
+                            <a class="nav-link" href="#api-tab" data-bs-toggle="tab">Auth</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#examples-tab" data-bs-toggle="tab">Examples</a>
+                            <a class="nav-link" href="#examples-tab" data-bs-toggle="tab">Daten Verwaltung</a>
                         </li>
                     </ul>
                 </div>
@@ -57,53 +55,174 @@
                     <!-- Overview Tab -->
                     <div class="tab-pane fade show active" id="übersicht">
                         <h2>Übersicht</h2>
-                        <p><code>vc-tools</code> ist eine Platform zum schnellzugriff auf Interne Werkzeuge, Platfromen
+                        <p><code>«Wärchzigchaschtu</code> ist eine Platform zum schnellzugriff auf Interne Werkzeuge, Platfromen
                             & Informationen.</p>
                         <h4>Technischer Aufbau</h4>
-                        <img src="" alt="">
-                        <small>Bild Beschreibung</small>
+                        <img src="/assets/apps/dokumentation/waerchzigchaschtu.jpg" alt="" width="735" class="rounded-3">
 
-                        <p class="bg-black mt-2 p-2 w-50 rounded-3">
+                        <p class="bg-black mt-2 p-2 w-50 rounded-3 text-light">
                             <b class="text-info">Accounts zur Verwaltung</b><br>
-                            <small> <b class="text-white-50">GitHub</b> <i><u>marketing@valaiscom-ag.ch</u></i>
-                                <code>2FA</code>
-                            </small> <br>
-                            <small> <b class="text-primary">Netlify</b> <i><u>web@valaiscom-ag.ch</u></i>
-                            </small> <br>
-                            <small> <b class="text-success">Supabase</b> <i><u>marketing@valaiscom-ag.ch</u></i>
-                                <code>Anmelden mit GitHub</code> </small>
+                            <small>
+                                <b class="text-white-50">GitHub</b> <i><u>marketing@valaiscom-ag.ch </u></i><code>2FA</code>
+                            </small><br>
+                            <small>
+                                <b class="text-primary">Microsoft</b> <i><u>powerautomate@valaiscom-ag.ch </u></i><code>2FA</code>
+                            </small><br>
+                            <small>
+                                <b class="text-success">Supabase</b> <i><u>marketing@valaiscom-ag.ch </u></i><code>Anmelden mit GitHub</code>
+                            </small><br>
+                            <small>
+                                <b class="text-danger">Render</b> <i><u>marketing@valaiscom-ag.ch </u></i><code>Anmelden mit GitHub</code>
+                            </small>
+                            </p>
+                            <p>
+                            <h4>Externe Dokumentationen</h4>
+                            <a class="text-danger text-decoration-none" href="https://nodejs.org/docs/latest/api/">NodeJS</a> |
+                            <a class="text-danger text-decoration-none" href="https://expressjs.com/en/support/">expressJS</a> |
+                            <a class="text-danger text-decoration-none"
+                                href="https://getbootstrap.com/docs/5.3/getting-started/introduction/">Bootstrap</a> |
+                            <a class="text-danger text-decoration-none" href="https://docs.render.com/#node.js">Render</a>
                         </p>
                     </div>
 
                     <!-- Installation Tab -->
-                    <div class="tab-pane fade" id="installation-tab">
-                        <h2>Installation</h2>
-                        <p>Instructions on how to install the package:</p>
-                        <pre><code>$ npm install your-package-name</code></pre>
-                        <p>Make sure to install any necessary dependencies:</p>
-                        <pre><code>$ npm install</code></pre>
+                    <div class="tab-pane fade" id="codebase-tab">
+                        <h2>Codebase</h2>
+                        <p>Die Platfrom ist selbstprogrammiert & gehostet. Der Code wird auf <a
+                                href="https://github.com/Valaiscom-AG/ms-waerchzigchaschtu.git">GitHub</a> gespeichert. & mit Render
+                            gehostet.</p>
+                        <p><code>Pushes</code> zu GitHub inizieren ein Update auf Render, welches den neuen code implementiert.</p>
+                        <p>Es kann sein, dass sich Benutzer nach einem Update erneut anmelden müssen.</p>
+                        <hr>
+                        <p>Das <code>.env </code>sowie die <u>node_modules </u> werden durch das <code>.gitignore </code> file vom
+                            Deployment
+                            enfernt.
+                            Sollten neue Umgebungsvariablen erstellt worden sein müssen diese im Render Dashboard hinzugefügt werden. Das
+                            hinzufügen, verändern oder entfernen von Umgebungsvariablen führt ebenfalls zu einem neuen Deployment.</p>
+                        <hr>
+                        <h3>Anpassen der Platform mittels Code</h3>
+                    
+                        <p>*Git muss auf dem Gerät installiert sein!</p>
+                    
+                        <code>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        git pull
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </code>
+                        <code
+                            class="text-info"><a href="https://github.com/Valaiscom-AG/ms-waerchzigchaschtu.git">https://github.com/Valaiscom-AG/ms-waerchzigchaschtu.git</a></code><br>
+                        veränderungen vornehmen. <br>
+                        <code>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        git add . <br>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        git commit -m "{was wurde geändert}" <br>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        git push origin main <br>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    </code>
+                        <br>
+                        <p class="text-success">*Zum <code>push</code> (Aktuallisieren) muss der Benutzer mit dem <u>Valaiscom-AG</u>
+                            <code>GitHub</code>
+                            Account
+                            Angemeldet sein!
+                        </p>
+                        <hr>
+                        <h4>Entwicklungsumgebung Einrichten</h4>
+                        <ol>
+                            <li> Projekt in <a href="https://code.visualstudio.com">Visual Studio Code</a> Code öfnnen.</li>
+                            <li>Terminal Öffnen und in <code>cd App</code> navigieren</li>
+                            <li>vor dem Ersten Start <code>npm install</code> ausführen <b class="text-success">Node muss
+                                    Installiert sein!</b></li>
+                            <li>zum starten des localhosts <code>npm start</code> ausführen (Immer in der /App Directory)</li>
+                            <li>Der server läuft auf <code>http://localhost:3000/</code> <i>port kann in app.js angepasst werden, sollte er
+                                    besetzt sein <u class="text-danger">Der neue Port muss im Azure-Portal unter den URIs erfasst wereden um
+                                        die oAuth Anmeldung zu gewährleisten</u></i>
+                            </li>
+                            <li>Nach änderungen im Code der Ordner <code>views</code> oder <code>public</code> Einfach die Seite neu laden.
+                            </li>
+                            <li>Änderungen in der <code>auth</code> oder <code>routes</code> Directory erfordern ein erneutes
+                                <code>npm start</code> .
+                            </li>
+                        </ol>
+                        <hr>
+                        <h4>Views & Routes</h4>
+                        <p>Views & Routes sind definierte seiten, die angezeigt werden. Jeder view <code>.hbs</code> Datei benötigt eine
+                            Route um Erreichbar zu sein.</p>
+                    
+                        <h5>Routen Definiern</h5>
+                        <p> In der <code>Routes/index.js</code> Datei wird eine Route Bearbeitet ode Erstellt.</p>
+                        <b>Eine Route Erklärt</b> <br>
+                        <p class="bg-black mt-2 p-2 w-50 rounded-3 text-light">
+                            <code>// Route for the example <span class="badge text-bg-secondary">Kommentar</span></code>
+                            <br>
+                            <code>router.get('/example <span class="badge text-bg-success">Definition der Route xyz.com/example</span>', function (req, res, next) {</code>
+                            <br>
+                            <code>res.render('brief <span class="badge text-bg-warning">auf welches <u>.hbs</u> file wird verlinkt (example.hbs = example)</span>', {</code>
+                            <br>
+                            <code>title: 'Brief <span class="badge text-bg-secondary">Meta-Titel der Seite</span>',</code> <br>
+                            <code>icon: '/assets/apps/icons/briefe.png <span class="badge text-bg-secondary">Pfad zum icon (falls speziell festgelegt.)</span>', </code>
+                            <br>
+                            <code>isAuthenticated: req.session.isAuthenticated,<br>username: req.session.account?.username,<span class="badge text-bg-secondary">Der Benutzer muss sich anmelden um den vollen inhalt zu sehen</span>', </code>
+                            <br>
+                            <code>                        }); <br>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                });', </code>
+                            <br>
+                        </p>
+                        <h5>Views Erstellen</h5>
+                        <p>ist die Route Erstellt? gut, weiter gehts mit dem view.</p>
+                        <p>Ein view <code>==</code> eine <code>.hbs</code> Datei</p>
+                        <p>Das groundgerüst Jedes views wird aus der <code>layout.hbs</code> Datei Geladen. Darin Enthalten sind der head &
+                            title tag sowie links zu den stylesheets & scripts wie <code>helper.js</code> & <code>themes.js</code> welche
+                            auf jeder seite enthalten
+                            sind.</p>
+                        <p>Somit wird in einer neuen <code>.hbs</code> Datei nur der inhalt des html <code>body</code> der Jeweiligen Seite
+                            Erstellt.</p>
+                        <p>Jedes file sollte den standard <code>nav</code> tag enthalten so wie allfällige css anpassungen mittels
+                            <code>style</code> tags.
+                        </p>
+                        <p>Es kann die <code>template.hbs</code> Datei Dupliziert werden.</p>
+                    
+                        <h5>Handlebars</h5>
+                        <p>Handlebars ist die primäre Template Engine. dieser Platform.</p>
+                        <p><b>Das Wichtigste in kürze:</b></p>
+                        <p>Daten Referenzieren</p> <code>&#123;&#123;data&#125;&#125;</code> <br>
+                        <p>Auth Verwaltung </p>
+                        <code>&#123;&#123;#if isAuthenticated&#125;&#125;<br> 
+                                                                                                                                                                                                                                                                                                                                                                                                                    Hallo, Welt  <span class="badge text-bg-secondary">angezeigt wenn eingeloggt</span> <br>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            &#123;&#123;else&#125;&#125; <br>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Bitte Anmelden <span class="badge text-bg-secondary">angezeigt wenn ausgeloggt</span> <br>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                              &#123;&#123;/ if&#125;&#125;</code>
+                        <br>
+                        <hr>
+                        <h3>Azure-Potal</h3>
+                        <p>Im Azure Portal wird das Backend der Anmeldung mit Microsoft Verwaltet</p>
+                        <p> <b>Diese Wichtigen Eistellungen sind zu Beachten:</b></p>
+                        <ul>
+                            <li>Redirect URIs</li>
+                            <li>Client ID</li>
+                            <li>App ID</li>
+                            <li>App Secret</li>
+                            <li>Tenant ID (Dammit nur @valaiscom-ag.ch einloggen kann.)</li>
+                        </ul>
+                        <h4>Anmeldung</h4>
+                        <ol>
+                            <li>Mit <code>powerautomate@valaiscom-ag.ch</code> Anmelden</li>
+                            <li>Ins Azure-Portal mit der Suchleiste auf <u>office.com</u></li>
+                            <li>Unter App Registrierung <code>ms-waerchzigchaschtu</code> können die Einstellungen Angepasst werden</li>
+                        </ol>
+                        <hr>
+                        <h3>Supabase</h3>
+                        <p>Über Supabase läuft die Datenbank der Platform.</p>
+                        <p>Die Datenbank ist eine PostgreSQL Datenbank.</p>
+                        <p>Region EU Frankfurt 1</p>
+                        <p class="mb-5">Datenbank Login <code>GitHub</code></p>
                     </div>
 
                     <!-- Usage Tab -->
                     <div class="tab-pane fade" id="usage-tab">
-                        <h2>Usage</h2>
-                        <p>Basic usage examples:</p>
-                        <pre><code>import { YourModule } from 'your-package-name';
-                            
-                            const result = YourModule.doSomething();
-                            console.log(result);</code></pre>
-                        <p>For more advanced usage, refer to the API reference.</p>
+                        <h2>Hosting mit Render</h2>
+                        <p>Die Platform wird mit der <a href="https://render.com">Render</a> gehostet</p>
                     </div>
 
                     <!-- API Reference Tab -->
                     <div class="tab-pane fade" id="api-tab">
-                        <h2>API Reference</h2>
-                        <h3>doSomething()</h3>
-                        <p><code>doSomething(param: string): string</code></p>
-                        <p>Returns a processed string based on the input parameter.</p>
-                        <h3>AnotherFunction()</h3>
-                        <p><code>AnotherFunction(param: number): number</code></p>
-                        <p>Processes a number and returns the result.</p>
+                        <h2>Hosting mit Render</h2>
+                        <p>Die Platform wird mit der <a href="https://render.com">Render</a> gehostet</p>
                     </div>
 
                     <!-- Examples Tab -->
@@ -126,5 +245,3 @@
     <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
     <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
     {{/if}}
-</center>
-<script type="module" src="/js/apps/fiber-checker.js"></script>

@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             appHubItem.innerHTML = `
             <div style="width:300px;min-width:200px;max-width:400px;height:210px;" class="card m-2">
                         <div class="card-header text-center">
-                        <a herf="${app.link}">
+                        <a target="_blank" rel="noopener noreferrer" herf="${app.link}">
                             <img src="${app.icon}" alt="${app.icon}" width="50" class="me-2" draggable="false">
                         </a>
                             <span class="fw-bold fs-5">${app.name}</span>
@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <small>${app.description}</small><br>
                         </div>
                         <div class="card-footer text-center">
-                            <a href="${app.link}" class="btn btn-danger btn-sm m-1 mt-2">Öffnen</a>
+                            <a target="_blank" rel="noopener noreferrer" href="${app.link}" class="btn btn-danger btn-sm m-1 mt-2">Öffnen</a>
                         </div>
                         `;
             appHub.appendChild(appHubItem);

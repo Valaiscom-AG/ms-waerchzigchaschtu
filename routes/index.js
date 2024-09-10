@@ -76,7 +76,7 @@ router.get('/dokumentation', function (req, res, next) {
     });
 });
 
-// Route for the dokumentation
+// Route for the installieren
 router.get('/installieren', function (req, res, next) {
     res.render('installieren', {
         title: 'Installieren',
@@ -86,7 +86,7 @@ router.get('/installieren', function (req, res, next) {
     });
 });
 
-// Route for the dokumentation
+// Route for the brief
 router.get('/brief', function (req, res, next) {
     res.render('brief', {
         title: 'Brief',
