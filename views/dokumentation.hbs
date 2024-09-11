@@ -45,6 +45,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#examples-tab" data-bs-toggle="tab">Daten Verwaltung</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#admin-tab" data-bs-toggle="tab">Admin</a>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -216,26 +219,55 @@
                     <!-- Usage Tab -->
                     <div class="tab-pane fade" id="usage-tab">
                         <h2>Hosting mit Render</h2>
-                        <p>Die Platform wird mit der <a href="https://render.com">Render</a> gehostet</p>
+                        <p>Die Platform wird via <a href="https://render.com">Render</a> gehostet.</p>
+                        <p>Zu beachten sind hier nur die Umgebungsvariablen. (.env)</p>
                     </div>
 
                     <!-- API Reference Tab -->
                     <div class="tab-pane fade" id="api-tab">
-                        <h2>Hosting mit Render</h2>
-                        <p>Die Platform wird mit der <a href="https://render.com">Render</a> gehostet</p>
+                        <h2>Auth</h2>
+                        <p>Wir verwenden microsofts OAuth Tenant Konfiguration um unsere Platform & Ihren Content vor ungewollten zugriffen zu
+                            schützen.
+                        </p>
+                        <p>Die verwaltung dieser Konfiguration läuft über Die App Registrierung im Azure Portal Login:
+                            <code>powerautomate@valaiscom-ag.ch</code>
+                        </p>
                     </div>
 
                     <!-- Examples Tab -->
                     <div class="tab-pane fade" id="examples-tab">
-                        <h2>Examples</h2>
-                        <p>Here are some example use cases:</p>
-                        <pre><code>// Example 1
-                            const result1 = YourModule.doSomething('example');
-                            console.log(result1);
-                            
-                            // Example 2
-                            const result2 = YourModule.AnotherFunction(42);
-                            console.log(result2);</code></pre>
+                        <h2>Daten Verwaltung</h2>
+                        <p>Die PostgressQL Datenbank liegt mit Supabase in der Cloud.</p>
+                        <p><b>Login:</b> <code>marketing@valaiscom-ag.ch (GitHub)</code></p>
+                        <h3>Tabels</h3>
+                        <img src="/assets/apps/dokumentation/db.png" alt="" width="735" class="rounded-3">
+                        <h3>CRUD</h3>
+                        <p>zur Einfachen Verwaltung gibt es zu jedem table ein CRUD interface unter <a href="/editor">/editor</a></p>
+                        </div>
+                        <!-- Examples Tab -->
+                        <div class="tab-pane fade" id="admin-tab">
+                            <h3>
+                                hinzufügen oder Bearbeiten von Apps
+                            </h3>
+                            <p>Die Apps welche auf der Landingpage angezeigt werden können im <a href="/editor">/editor</a> verwaltet werden.
+                            </p>
+                            <h3>
+                                hinzufügen oder Bearbeiten von Mitarbeitern
+                            </h3>
+                            <p>Die Mitarbeiter können im <a href="/editor">/editor</a> verwaltet werden.
+                            </p>
+                            <h3>
+                                hinzufügen oder Bearbeiten von Regionen
+                            </h3>
+                            <p>Die Regionen welche auf der Gebietskarte angezeigt werden können im <a href="/editor">/editor</a> verwaltet
+                                werden.
+                            </p>
+                            <h3>
+                                hinzufügen oder Bearbeiten von Abteilungen
+                            </h3>
+                            <p>Die Abteilungen können im <a href="/editor">/editor</a> verwaltet
+                                werden.
+                            </p>
                     </div>
                 </div>
             </div>
