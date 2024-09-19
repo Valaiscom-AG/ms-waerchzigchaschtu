@@ -28,6 +28,7 @@
             <!-- Navigation -->
             <nav class="col-md-3 col-lg-2 d-md-block sidebar">
                 <div class="position-sticky">
+                        <h4 id="username-d" class="text-success d-none">{{username}}</h4>
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="#übersicht"
@@ -273,6 +274,7 @@
             </div>
         </div>
     </main>
+<script type="module" src="/js/apps/dokumentation.js"></script>
     {{else}}
     <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
     <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>

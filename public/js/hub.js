@@ -4,6 +4,37 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const supabase = await getSupabaseClient();
 
+    // Function to replace email with the corresponding first name and display it
+    async function replaceEmailWithFirstName() {
+        const usernameElement = document.getElementById('username-d');
+        const insertedEmail = usernameElement.innerText; // The inserted email
+
+        // Query the employees table to check for the matching email
+        const { data, error } = await supabase
+            .from('employees')
+            .select('firstname')
+            .eq('email', insertedEmail);
+
+        if (error) {
+            console.error('Error fetching employee data:', error.message);
+            return;
+        }
+
+        if (data && data.length > 0) {
+            const firstName = data[0].firstname;
+
+            // Replace the email with the first name in the DOM and display a greeting
+            usernameElement.innerText = `Hallo, ${firstName}`;
+            usernameElement.className = 'fw-bold';
+        } else {
+            // If no match is found, display the email as is
+            console.log('Email not found in the database');
+        }
+    }
+
+    // Fetch and replace email on page load
+    replaceEmailWithFirstName();
+
     // Function to fetch and render apps
     async function fetchAndRenderApps() {
         const { data, error } = await supabase.from('apps').select('*');
@@ -21,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             appHubItem.className = 'text-decoration-none';
             appHubItem.style = '';
-            appHubItem.herf = `${app.link}`
+            appHubItem.herf = `${app.link}`;
             appHubItem.innerHTML = `
             <div style="width:300px;min-width:200px;max-width:400px;height:210px;" class="card m-2">
                         <div class="card-header text-center">
@@ -38,7 +69,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                         </div>
                         `;
             appHub.appendChild(appHubItem);
-
         });
     }
 
