@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             const firstName = data[0].firstname;
 
             // Replace the email with the first name in the DOM and display a greeting
-            usernameElement.innerText = `Hallo, ${firstName}`;
+            usernameElement.innerText = `Willkommen zurück, ${firstName}`;
             usernameElement.className = 'fw-bold';
         } else {
             // If no match is found, display the email as is
