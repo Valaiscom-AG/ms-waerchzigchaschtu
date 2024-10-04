@@ -54,18 +54,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             appHubItem.style = '';
             appHubItem.herf = `${app.link}`;
             appHubItem.innerHTML = `
-            <div style="width:300px;min-width:200px;max-width:400px;height:210px;" class="card m-2">
-                        <div class="card-header text-center">
-                        <a target="_blank" rel="noopener noreferrer" herf="${app.link}">
-                            <img src="${app.icon}" alt="${app.icon}" width="50" class="me-2" draggable="false">
-                        </a>
+            <div style="width:300px;min-width:200px;max-width:400px;height:210px;" class="card m-2 border border-0">
+                            <a target="_blank" rel="noopener noreferrer" href="${app.link}" class="btn m-1 mt-2"> <img src="${app.icon}" alt="${app.icon}" width="100" class="me-2 rounded-3" draggable="false"></a>
                             <span class="fw-bold fs-5">${app.name}</span>
-                        </div>
-                        <div class="card-body text-center">
-                            <small>${app.description}</small><br>
-                        </div>
-                        <div class="card-footer text-center">
-                            <a target="_blank" rel="noopener noreferrer" href="${app.link}" class="btn btn-danger btn-sm m-1 mt-2">Öffnen</a>
                         </div>
                         `;
             appHub.appendChild(appHubItem);

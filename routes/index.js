@@ -96,4 +96,24 @@ router.get('/brief', function (req, res, next) {
     });
 });
 
+// Route for the brief
+router.get('/grafik', function (req, res, next) {
+    res.render('grafik', {
+        title: 'Grafik',
+        icon: '/assets/apps/icons/briefe.png',
+        isAuthenticated: req.session.isAuthenticated,
+        username: req.session.account?.username,
+    });
+});
+
+// Route for the brief
+router.get('/bento', function (req, res, next) {
+    res.render('bento', {
+        title: 'Bento',
+        icon: '/assets/apps/icons/briefe.png',
+        isAuthenticated: req.session.isAuthenticated,
+        username: req.session.account?.username,
+    });
+});
+
 module.exports = router;
