@@ -1,0 +1,293 @@
+<style>
+    .rating {
+        display: inline-block;
+    }
+
+    .rating input {
+        display: none;
+    }
+
+    .rating label {
+        float: right;
+        cursor: pointer;
+        color: #ccc;
+        transition: color 0.3s;
+    }
+
+    .rating label:before {
+        content: '\2605';
+        font-size: 200px;
+    }
+
+    .rating input:checked~label,
+    .rating label:hover,
+    .rating label:hover~label {
+        color: #d60137;
+        transition: color 0.3s;
+    }
+</style>
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/"><img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom"
+                width="125">
+            <span class="m-3">{{title}}</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+            </ul>
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i> <!-- Moon icon by default -->
+            </button>
+        </div>
+    </div>
+</nav>
+<main class="d-flex justify-content-center align-items-center flex-wrap">
+    <section class="mt-5 ms-3 me-3 d-flex flex-wrap justify-content-center" id="app-hub">
+        <!---->
+        <div style="width:300px;min-width:200px;max-width:400px;height:210px;"
+            class="card m-2 border border-0 d-flex flex-column align-items-center justify-content-center m-5 mb-5">
+            <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png" width="245"
+                    class="me-2 rounded-3" draggable="false">
+            </a>
+            <span class="fw-bold fs-5 text-center">valaiscom.ch</span>
+        </div>
+        <!---->
+        <!---->
+        <div style="width:300px;min-width:200px;max-width:400px;height:210px;"
+            class="card m-2 border border-0 d-flex flex-column align-items-center justify-content-center m-5 mb-5">
+            <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png" width="245"
+                    class="me-2 rounded-3" draggable="false">
+            </a>
+            <span class="fw-bold fs-5 text-center">valaiscom.ch</span>
+        </div>
+        <!---->
+        <!---->
+        <div style="width:300px;min-width:200px;max-width:400px;height:210px;"
+            class="card m-2 border border-0 d-flex flex-column align-items-center justify-content-center m-5 mb-5">
+            <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png" width="245"
+                    class="me-2 rounded-3" draggable="false">
+            </a>
+            <span class="fw-bold fs-5 text-center">valaiscom.ch</span>
+        </div>
+        <!---->
+        <!---->
+        <div style="width:300px;min-width:200px;max-width:400px;height:210px;"
+            class="card m-2 border border-0 d-flex flex-column align-items-center justify-content-center m-5 mb-5">
+            <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png" width="245"
+                    class="me-2 rounded-3" draggable="false">
+            </a>
+            <span class="fw-bold fs-5 text-center">valaiscom.ch</span>
+        </div>
+        <!---->
+        <!---->
+        <div style="width:300px;min-width:200px;max-width:400px;height:210px;"
+            class="card m-2 border border-0 d-flex flex-column align-items-center justify-content-center m-5 mb-5">
+            <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png" width="245"
+                    class="me-2 rounded-3" draggable="false">
+            </a>
+            <span class="fw-bold fs-5 text-center">valaiscom.ch</span>
+        </div>
+        <!---->
+        <!---->
+        <div style="width:300px;min-width:200px;max-width:400px;height:210px;"
+            class="card m-2 border border-0 d-flex flex-column align-items-center justify-content-center m-5 mb-5">
+            <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png" width="245"
+                    class="me-2 rounded-3" draggable="false">
+            </a>
+            <span class="fw-bold fs-5 text-center">valaiscom.ch</span>
+        </div>
+        <!---->
+        <!---->
+        <div style="width:300px;min-width:200px;max-width:400px;height:210px;"
+            class="card m-2 border border-0 d-flex flex-column align-items-center justify-content-center m-5 mb-5">
+            <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png" width="245"
+                    class="me-2 rounded-3" draggable="false">
+            </a>
+            <span class="fw-bold fs-5 text-center">valaiscom.ch</span>
+        </div>
+        <!---->
+        <!---->
+        <div style="width:300px;min-width:200px;max-width:400px;height:210px;"
+            class="card m-2 border border-0 d-flex flex-column align-items-center justify-content-center m-5 mb-5">
+            <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png" width="245"
+                    class="me-2 rounded-3" draggable="false">
+            </a>
+            <span class="fw-bold fs-5 text-center">valaiscom.ch</span>
+        </div>
+        <!---->
+    </section>
+    <div class="row w-100 d-flex justify-content-center align-items-center mt-5">
+        <div class="col-3 m-2 me-1 bg-warning rounded-3">
+            <h3 class="text-center fw-bold mt-2">Kommunikation</h3>
+            <div class="row d-flex justify-content-center">
+                <div class="col-3">
+                    <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                        <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png"
+                            width="80" class="me-2 rounded-3" draggable="false">
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                        <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png"
+                            width="80" class="me-2 rounded-3" draggable="false">
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                        <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png"
+                            width="80" class="me-2 rounded-3" draggable="false">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 m-2 me-1 bg-warning rounded-3">
+            <h3 class="text-center fw-bold mt-2">Promotionen</h3>
+            <div class="row d-flex justify-content-center">
+                <div class="col-3">
+                    <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                        <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png"
+                            width="80" class="me-2 rounded-3" draggable="false">
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                        <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png"
+                            width="80" class="me-2 rounded-3" draggable="false">
+                    </a>
+                </div>
+                <div class="col-3">
+                    <a href="https://www.valaiscom.ch" class="btn m-1 mt-2">
+                        <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png"
+                            width="80" class="me-2 rounded-3" draggable="false">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="col-2 m-2 me-1 bg-warning rounded-3">
+            <h3 class="text-center fw-bold mt-2">Bewertung</h3>
+            <div class="row d-flex justify-content-center">
+                <div class="col-3">
+                    <button class="btn m-1 mt-2" data-bs-toggle="modal" data-bs-target="#npsModal">
+                        <img src="/assets/apps/icons/dokumentation.png" alt="/assets/apps/icons/dokumentation.png"
+                            width="80" class="me-2 rounded-3" draggable="false">
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</main>
+
+<!-- NPS Fullscreen Modal -->
+<div class="modal fade" id="npsModal" tabindex="-1" aria-labelledby="npsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fw-bold" id="npsModalLabel">Feedback</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="npsForm">
+                    <div class="mb-3">
+                        <select id="employeeDropdown" class="form-select form-control-lg text-center fs-3" required>
+                            <option value="" disabled selected>Mitarbeiter</option>
+                            <option value="Franziska Rieder">Franziska Rieder</option>
+                            <option value="Laureta Krasniqi">Laureta Krasniqi</option>
+                            <option value="Mira Briggeler">Mira Briggeler</option>
+                            <option value="Mariana Castro">Mariana Castro</option>
+                            <option value="Loris Hildenbrand">Loris Hildenbrand</option>
+                            <option value="Luca Eggel">Luca Eggel</option>
+                            <option value="Michela Eggel">Michela Eggel</option>
+                            <option value="Tim Luginbühl">Tim Luginbühl</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3">
+                        <div class="rating w-75">
+                            <input value="5" name="rating" id="star5" type="radio">
+                            <label for="star5"></label>
+                            <input value="4" name="rating" id="star4" type="radio">
+                            <label for="star4"></label>
+                            <input value="3" name="rating" id="star3" type="radio">
+                            <label for="star3"></label>
+                            <input value="2" name="rating" id="star2" type="radio">
+                            <label for="star2"></label>
+                            <input value="1" name="rating" id="star1" type="radio">
+                            <label for="star1"></label>
+                        </div>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <textarea class="form-control fs-4" id="comment" rows="3" placeholder="Bemerkung..."></textarea>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger fs-2 fw-bold">Abschicken</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // Function to set a cookie
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + (value || "") + expires + "; path=/";
+    }
+
+    // Function to get a cookie by name
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        }
+        return null;
+    }
+
+    // Function to check the cookie and set the selected value
+    function setDropdownFromCookie() {
+        var lastSelectedEmployee = getCookie('selectedEmployee');
+        if (lastSelectedEmployee) {
+            var dropdown = document.getElementById('employeeDropdown');
+            dropdown.value = lastSelectedEmployee; // Set dropdown value
+        }
+    }
+
+    // Function to save the selected dropdown value in a cookie
+    function saveDropdownValue() {
+        var dropdown = document.getElementById('employeeDropdown');
+        var selectedValue = dropdown.options[dropdown.selectedIndex].value;
+        setCookie('selectedEmployee', selectedValue, 7); // Store for 7 days
+    }
+
+    // Set the dropdown value from the cookie when the page is loaded
+    window.onload = function () {
+        setDropdownFromCookie();
+
+        // Attach an event listener to save the selected value when changed
+        var dropdown = document.getElementById('employeeDropdown');
+        dropdown.addEventListener('change', saveDropdownValue);
+    };
+</script>
+<script type="module" src="/js/apps/nps.js"></script>

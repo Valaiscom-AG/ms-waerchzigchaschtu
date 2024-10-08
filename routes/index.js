@@ -107,10 +107,19 @@ router.get('/grafik', function (req, res, next) {
 });
 
 // Route for the brief
-router.get('/bento', function (req, res, next) {
-    res.render('bento', {
-        title: 'Bento',
+router.get('/helpdesk', function (req, res, next) {
+    res.render('helpdesk', {
+        title: 'Helpdesk',
         icon: '/assets/apps/icons/briefe.png',
+        isAuthenticated: req.session.isAuthenticated,
+        username: req.session.account?.username,
+    });
+});
+// Route for the brief
+router.get('/nps-dash', function (req, res, next) {
+    res.render('nps-dash', {
+        title: 'NPS Dashboard',
+        icon: '/assets/apps/icons/leads.png',
         isAuthenticated: req.session.isAuthenticated,
         username: req.session.account?.username,
     });
