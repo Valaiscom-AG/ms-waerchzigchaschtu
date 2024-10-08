@@ -115,10 +115,21 @@ router.get('/helpdesk', function (req, res, next) {
         username: req.session.account?.username,
     });
 });
+
 // Route for the brief
 router.get('/nps-dash', function (req, res, next) {
     res.render('nps-dash', {
         title: 'NPS Dashboard',
+        icon: '/assets/apps/icons/leads.png',
+        isAuthenticated: req.session.isAuthenticated,
+        username: req.session.account?.username,
+    });
+});
+
+// Route for the brief
+router.get('/visitenkarten', function (req, res, next) {
+    res.render('visitenkarten', {
+        title: 'Visitenkarten',
         icon: '/assets/apps/icons/leads.png',
         isAuthenticated: req.session.isAuthenticated,
         username: req.session.account?.username,

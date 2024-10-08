@@ -1,0 +1,16 @@
+{
+    "templates": [
+        {
+            "title": "Job Application",
+            "text": "Dear Sir/Madam, \nI am writing to apply for the position of ..."
+        },
+        {
+            "title": "Invoice Reminder",
+            "text": "Dear Customer, \nThis is a reminder for the pending invoice #..."
+        },
+        {
+            "title": "Meeting Invitation",
+            "text": "Dear Colleague, \nYou are invited to a meeting on ..."
+        }
+    ]
+}
