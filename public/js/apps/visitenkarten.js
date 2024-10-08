@@ -168,7 +168,7 @@ firstPage.drawImage(PngImage, {
         const pdfBlobUrl = URL.createObjectURL(new Blob([pdfBytes], { type: 'application/pdf' }));
         const pdfPreviewIframe = document.getElementById('pdfPreview');
         if (pdfPreviewIframe) {
-            pdfPreviewIframe.src = `${pdfBlobUrl}#toolbar=0&navpanes=0&scrollbar=0`;
+            pdfPreviewIframe.src = `${pdfBlobUrl}#toolbar=1&navpanes=0&scrollbar=0`;
         } else {
             console.error("PDF preview iframe not found.");
         }
