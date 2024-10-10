@@ -145,11 +145,11 @@ const PngImageBytes = await fetch(PngUrl).then((res) => res.arrayBuffer());
 
 // Use embedPng for PNG images, not embedJpg
 const PngImage = await pdfDoc.embedPng(PngImageBytes); 
-const PngDims = PngImage.scale(0.12);
+const PngDims = PngImage.scale(0.11);
 
 firstPage.drawImage(PngImage, {
-  x: 7,
-  y: 140,
+  x: -15,
+  y: 138,
   width: PngDims.width,
   height: PngDims.height,
   opacity: 1,
