@@ -118,9 +118,9 @@ router.get('/helpdesk', function (req, res, next) {
 
 // Route for the brief
 router.get('/cs-updates', function (req, res, next) {
-    res.render('nps-dash', {
-        title: 'NPS Dashboard',
-        icon: '/assets/apps/icons/leads.png',
+    res.render('cs-updates', {
+        title: 'CS-Updates',
+        icon: '/assets/apps/icons/cs.png',
         isAuthenticated: req.session.isAuthenticated,
         username: req.session.account?.username,
     });

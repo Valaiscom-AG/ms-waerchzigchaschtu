@@ -1,0 +1,95 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom" width="125">
+            <span class="m-3">{{title}}</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+{{#if isAuthenticated }}
+<div class="container m-5 d-flex justify-content-center">
+    <div class="col-3">
+        <div class="row">
+            <h4 id="usernamedst" style="margin-right: 65px;margin-top: 25px">{{username}}
+            </h4>
+        </div>
+        <div class="row">
+            <div id="created-at" class="text-danger mt-3"></div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="row">
+        <div class="col-10">
+            <form id="cs-form-updates">
+                <input type="text" name="uuid" id="uuid" hidden required />
+                <input type="text" name="cs_nr" id="cus_nr" placeholder="Kundennummer" class="form-control mb-4"
+                    required />
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="qmc" value="QMC:" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                        QMC
+                    </label>
+                </div>
+                <div class="form-check mb-4">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="odoo" value="Odoo:">
+                    <label class="form-check-label" for="exampleRadios2">
+                        Odoo
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-danger ,t-3">Aktuallisieren</button>
+            </form>
+
+            <script>
+                function getQueryParam(name) {
+                    const urlParams = new URLSearchParams(window.location.search);
+                    return urlParams.get(name);
+                }
+
+                // Set the UUID value if it exists in the URL
+                const uuid = getQueryParam("uuid");
+                if (uuid) {
+                    document.getElementById("uuid").value = uuid;
+                }
+            </script>
+        </div>
+    </div>
+</div>
+
+<div id="toast-container" class="position-fixed bottom-0 end-0 p-3" style="z-index: 11"></div>
+<h4 class="text-center fw-bold mb-4">Weitere Bewertungen</h4>
+<table class="table w-50 container border border-2 border-dark-emphasis ">
+    <thead>
+        <tr>
+            <th scope="col">Erstellt am</th>
+            <th scope="col">Kunden-Nr.</th>
+            <th scope="col">Aktuallisieren</th>
+        </tr>
+    </thead>
+    <tbody id="cs-feedback-table-body">
+        <!-- Rows will be inserted here by JavaScript -->
+    </tbody>
+</table>
+
+<div id="toast-container" class="position-fixed bottom-0 end-0 p-3" style="z-index: 11"></div>
+
+{{else}}
+<h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+<a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+{{/if}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="module" src="/js/apps/cs-entrys.js"></script>
