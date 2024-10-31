@@ -1,0 +1,146 @@
+<style>
+    .result-buttons {
+        display: none;
+        /* Hide buttons initially */
+    }
+</style>
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom" width="125">
+            <span class="m-3">{{title}}</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+{{#if isAuthenticated }}
+<main class="container m-5 text-center">
+    <h1 class="fw-bold mb-4">Formular Ausfüllen</h1>
+    <button class="btn btn-danger btn-lg mb-3" type="button" data-bs-toggle="modal"
+        data-bs-target="#fullscreenModal1">Hier Öffnen</button><br>
+    <button class="btn btn-danger btn-lg" type="button" data-bs-toggle="modal"
+        data-bs-target="#fullscreenModal2">Versenden</button>
+</main>
+<!-- Fullscreen Modal 1 -->
+<div class="modal fade" id="fullscreenModal1" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fullscreenModalLabel">Hier Öffnen</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <section class="container mt-5 m-5 text-center">
+                    <a class="btn btn-danger btn-lg mb-3 w-100 mt-5"
+                        href="https://valaiscom.ch/kundenfeedback-kundendienst/">Kundendienst</a> <br>
+                    <a class="btn btn-danger btn-lg mb-3 w-100"
+                        href="https://valaiscom.ch/kundenfeedback-verkauf">Verkauf</a> <br>
+                    <a class="btn btn-danger btn-lg mb-3 w-100"
+                        href="https://valaiscom.ch/kundenfeedback-technik">Technik</a>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Fullscreen Modal 2 -->
+<div class="modal fade" id="fullscreenModal2" tabindex="-1" aria-labelledby="fullscreenModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="fullscreenModalLabel">Versenden</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <section class="container mt-5 m-5 text-center">
+                    <select class="form-select form-select-lg mb-3" aria-label="Large select example" required>
+                        <option selected disabled>Formular</option>
+                        <option value="1">Kundendienst</option>
+                        <option value="2">Verkauf</option>
+                        <option value="3">Technik</option>
+                    </select>
+                    <div class="form-group">
+                        <label for="contactInput">Enter Email or Phone Number</label>
+                        <input type="text" class="form-control form-control-lg" id="contactInput"
+                            placeholder="Email or Phone Number">
+                    </div>
+                    <div class="result-buttons">
+                        <button class="btn btn-danger btn-lg mt-4" id="whatsappBtn">Auf Whatsapp Senden</button>
+                        <button class="btn btn-danger btn-lg mt-4" id="smsBtn">Per SMS Zustellen</button>
+                        <button class="btn btn-danger btn-lg mt-4" id="emailBtn">Via E-Mail Versenden</button>
+                    </div>
+                </section>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script>
+    const inputField = document.getElementById('contactInput');
+    const resultButtons = document.querySelector('.result-buttons');
+    const whatsappBtn = document.getElementById('whatsappBtn');
+    const smsBtn = document.getElementById('smsBtn');
+    const emailBtn = document.getElementById('emailBtn');
+
+    inputField.addEventListener('input', function () {
+        const inputValue = inputField.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/; // Simple email regex
+        const phonePattern = /^\+?\d{10,15}$/; // Simple phone regex (adjust as necessary)
+
+        if (emailPattern.test(inputValue)) {
+            // It's an email address
+            resultButtons.style.display = 'block';
+            whatsappBtn.style.display = 'none'; // Hide WhatsApp if it's an email
+            smsBtn.style.display = 'none'; // Hide SMS if it's an email
+            emailBtn.style.display = 'inline-block'; // Show email option
+        } else if (phonePattern.test(inputValue)) {
+            // It's a phone number
+            resultButtons.style.display = 'block';
+            whatsappBtn.style.display = 'inline-block'; // Show WhatsApp option
+            smsBtn.style.display = 'inline-block'; // Show SMS option
+            emailBtn.style.display = 'none'; // Hide email if it's a phone number
+        } else {
+            // Not valid
+            resultButtons.style.display = 'none';
+        }
+    });
+
+    // Add functionality to buttons
+    whatsappBtn.addEventListener('click', function () {
+        const message = "Hello! This is a test message.";
+        const url = `https://wa.me/${inputField.value}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    });
+
+    smsBtn.addEventListener('click', function () {
+        const message = "Hello! This is a test message.";
+        const url = `sms:${inputField.value}?body=${encodeURIComponent(message)}`;
+        window.open(url, '_self');
+    });
+
+    emailBtn.addEventListener('click', function () {
+        const subject = "Test Email";
+        const body = "Hello! This is a test message.";
+        const url = `mailto:${inputField.value}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+        window.open(url, '_self');
+    });
+</script>
+{{else}}
+<h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+<a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+{{/if}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+<script type="module" src="/js/apps/cs-home.js"></script>

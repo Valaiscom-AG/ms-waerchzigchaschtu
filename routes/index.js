@@ -119,16 +119,27 @@ router.get('/helpdesk', function (req, res, next) {
 // Route for the cs-dashboard
 router.get('/cs-dashboard', function (req, res, next) {
     res.render('cs-dashboard', {
-        title: 'CS-Dashboard',
+        title: 'Kundenfeedback Dashboard',
         icon: '/assets/apps/icons/cs.png',
         isAuthenticated: req.session.isAuthenticated,
         username: req.session.account?.username,
     });
 });
+
 // Route for the cs-updates
 router.get('/cs-updates', function (req, res, next) {
     res.render('cs-updates', {
-        title: 'CS-Updates',
+        title: 'Kundenfeedback Center',
+        icon: '/assets/apps/icons/cs.png',
+        isAuthenticated: req.session.isAuthenticated,
+        username: req.session.account?.username,
+    });
+});
+
+// Route for the cs-updates
+router.get('/cs', function (req, res, next) {
+    res.render('cs-home', {
+        title: 'Kundenfeedback Center',
         icon: '/assets/apps/icons/cs.png',
         isAuthenticated: req.session.isAuthenticated,
         username: req.session.account?.username,
