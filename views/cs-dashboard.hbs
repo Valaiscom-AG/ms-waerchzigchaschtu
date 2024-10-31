@@ -1,0 +1,31 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom" width="125">
+            <span class="m-3">{{title}}</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+{{#if isAuthenticated }}
+<main>
+
+</main>
+{{else}}
+<h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+<a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i> Einloggen</a>
+{{/if}}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+<script type="module" src="/js/apps/cs-dashboard.js"></script>

@@ -116,7 +116,16 @@ router.get('/helpdesk', function (req, res, next) {
     });
 });
 
-// Route for the brief
+// Route for the cs-dashboard
+router.get('/cs-dashboard', function (req, res, next) {
+    res.render('cs-dashboard', {
+        title: 'CS-Dashboard',
+        icon: '/assets/apps/icons/cs.png',
+        isAuthenticated: req.session.isAuthenticated,
+        username: req.session.account?.username,
+    });
+});
+// Route for the cs-updates
 router.get('/cs-updates', function (req, res, next) {
     res.render('cs-updates', {
         title: 'CS-Updates',
@@ -126,7 +135,7 @@ router.get('/cs-updates', function (req, res, next) {
     });
 });
 
-// Route for the brief
+// Route for the visitenkarten
 router.get('/visitenkarten', function (req, res, next) {
     res.render('visitenkarten', {
         title: 'Visitenkarten',
