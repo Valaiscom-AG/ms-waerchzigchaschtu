@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
 
         const firstName = data[0].firstname;
-        usernameElement.innerText = `Hallo ${firstName} \n Bitte ergänze deine \n Bitte ergänze deine neueste Bewertung`;
+        usernameElement.innerText = `Hallo ${firstName} \n Bitte ergänze deine \n neueste Bewertung`;
         usernameElement.className = 'fw-bold';
     }
 
