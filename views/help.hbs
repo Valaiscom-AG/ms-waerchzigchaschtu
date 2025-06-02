@@ -1,0 +1,98 @@
+{{! help.hbs }}
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary rounded-3">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <img class="img-fluid mb-2" src="/assets/logo/logo.png" alt="valaiscom" width="125">
+            <span class="m-3">{{title}}</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0 "></ul>
+            {{#if isAuthenticated }}
+            <a id="helper"></a>
+            <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
+            {{else}}
+            <a href="/auth/signin" class="btn btn-danger"><i class="bi bi-box-arrow-in-right"></i></a>
+            {{/if}}
+            <button id="themeSwitcher" class="btn ms-2">
+                <i id="themeIcon" class="bi bi-moon"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<main class="d-flex justify-content-center align-items-center vh-100">
+    {{#if isAuthenticated }}
+    <h4 id="username-d" class="text-success">{{username}}</h4> <br>
+    <div id="redirect-msg" class="text-center text-muted fs-4">
+        Weiterleitung zur IT-Hilfe...
+    </div>
+    {{else}}
+    <div class="text-center">
+        <h1 class="mt-5 fw-bold mb-3">«Wärchzigchaschtu züe»</h1>
+        <a href="/auth/signin" class="btn btn-danger">
+            <i class="bi bi-box-arrow-in-right"></i> Einloggen
+        </a>
+    </div>
+    {{/if}}
+</main>
+
+{{#if isAuthenticated }}
+<script type="module">
+    import { getSupabaseClient } from '/js/database.js';
+
+    document.addEventListener('DOMContentLoaded', async () => {
+        const supabase = await getSupabaseClient();
+
+        const usernameElement = document.getElementById('username-d');
+        if (!usernameElement) {
+            console.error("username-d element not found.");
+            return;
+        }
+
+        const email = usernameElement.innerText.trim();
+        if (!email) {
+            console.error("No email found in #username-d element.");
+            return;
+        }
+
+        // Look up the employee by email
+        const { data, error } = await supabase
+            .from('employees')
+            .select('firstname, lastname')
+            .eq('email', email)
+            .single();
+
+        if (error || !data) {
+            console.error("User not found in database:", error?.message || 'No match');
+            return;
+        }
+
+        const fullName = `${data.firstname} ${data.lastname}`;
+
+        // Now check for existing feedback for that employee
+        const { data: feedback, error: feedbackError } = await supabase
+            .from('cs_feedback')
+            .select('uuid')
+            .eq('employee', fullName)
+            .order('created_at', { ascending: false })
+            .limit(1);
+
+        if (feedbackError || !feedback || feedback.length === 0) {
+            console.warn("No feedback found for", fullName);
+            return;
+        }
+
+        const uuid = feedback[0].uuid;
+        if (uuid) {
+            // Redirect to the feedback form with uuid
+            window.location.href = `/cs-feedback.html?uuid=${uuid}`;
+        }
+    });
+</script>
+
+{{/if}}
