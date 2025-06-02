@@ -61,38 +61,37 @@
         }
 
         // Look up the employee by email
-        const { data, error } = await supabase
+        const { data: employee, error: empError } = await supabase
             .from('employees')
-            .select('firstname, lastname')
+            .select('firstname, email')
             .eq('email', email)
             .single();
 
-        if (error || !data) {
-            console.error("User not found in database:", error?.message || 'No match');
+        if (empError || !employee) {
+            console.error("User not found in database:", empError?.message || 'No match');
             return;
         }
 
-        const fullName = `${data.firstname} ${data.lastname}`;
+        const { firstname } = employee;
 
-        // Now check for existing feedback for that employee
+        // Now check for existing feedback for that employee (by email)
         const { data: feedback, error: feedbackError } = await supabase
             .from('cs_feedback')
             .select('uuid')
-            .eq('employee', fullName)
+            .eq('employee', email)
             .order('created_at', { ascending: false })
             .limit(1);
 
         if (feedbackError || !feedback || feedback.length === 0) {
-            console.warn("No feedback found for", fullName);
+            console.warn("No feedback found for", email);
             return;
         }
 
         const uuid = feedback[0].uuid;
         if (uuid) {
-            // Redirect to the feedback form with uuid
-            window.location.href = `/cs-feedback.html?uuid=${uuid}`;
+            // Redirect to the feedback form with UUID, email, and first_name
+            window.location.href = `https://valaiscom.typeform.com/it-hilfe#email=${encodeURIComponent(email)}&first_name=${encodeURIComponent(firstname)}`;
         }
     });
 </script>
-
 {{/if}}
