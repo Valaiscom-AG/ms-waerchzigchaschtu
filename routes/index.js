@@ -156,4 +156,14 @@ router.get('/visitenkarten', function (req, res, next) {
     });
 });
 
+// Route for the visitenkarten
+router.get('/hilfe', function (req, res, next) {
+    res.render('help', {
+        title: 'Hilfe',
+        icon: '/assets/apps/icons/leads.png',
+        isAuthenticated: req.session.isAuthenticated,
+        username: req.session.account?.username,
+    });
+});
+
 module.exports = router;
