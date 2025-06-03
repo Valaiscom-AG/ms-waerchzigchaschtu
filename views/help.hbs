@@ -11,8 +11,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0 "></ul>
-            {{#if isAuthenticated }}
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+            {{#if isAuthenticated}}
             <a id="helper"></a>
             <a href="/auth/signout" class="btn btn-danger"><i class="bi bi-box-arrow-right"></i></a>
             {{else}}
@@ -26,10 +26,12 @@
 </nav>
 
 <main class="d-flex justify-content-center align-items-center vh-100">
-    {{#if isAuthenticated }}
-    <h4 id="username-d" class="text-success">{{username}}</h4> <br>
-    <div id="redirect-msg" class="text-center text-muted fs-4">
-        Weiterleitung zur IT-Hilfe...
+    {{#if isAuthenticated}}
+    <div class="text-center">
+        <h4 id="username-d" class="text-success">{{username}}</h4>
+        <div id="redirect-msg" class="text-center text-muted fs-4">
+            Weiterleitung zur IT-Hilfe...
+        </div>
     </div>
     {{else}}
     <div class="text-center">
@@ -41,8 +43,7 @@
     {{/if}}
 </main>
 
-{{#if isAuthenticated }}
-{{#if isAuthenticated }}
+{{#if isAuthenticated}}
 <script type="module">
     import { getSupabaseClient } from '/js/database.js';
 
