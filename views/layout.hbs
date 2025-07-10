@@ -18,14 +18,60 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-L1RDBDQQLX');
-        window.location.href = "https://waerchzigchastu.tools/";
+
+        // Verzögerte Weiterleitung nach 6 Sekunden
+        setTimeout(() => {
+            window.location.href = "https://waerchzigchastu.tools/";
+        }, 6000);
     </script>
+    <style>
+        .redirect-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            text-align: center;
+        }
+
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #d40037;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+            margin: 20px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .url-box {
+            background: #222;
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-top: 10px;
+            font-family: monospace;
+            word-break: break-all;
+        }
+    </style>
 </head>
 
 <body class="p-3 m-0 border-0 bd-example m-0 border-0" data-bs-theme="dark">
-    {{{body}}}
+    <div class="redirect-container">
+        <h1>Unser Intranet ist umgezogen</h1>
+        <p>Sie werden in wenigen Sekunden automatisch weitergeleitet.</p>
+        <p><strong>Bitte speichern Sie sich die neue Seite ab, damit Sie künftig direkt darauf zugreifen können:</strong></p>
+        <div class="url-box">
+            <a href="https://waerchzigchastu.tools/" style="color: #d40037;">https://waerchzigchastu.tools/</a>
+        </div>
+        <div class="loader"></div>
+    </div>
 </body>
 
 </html>
